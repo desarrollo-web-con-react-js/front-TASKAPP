@@ -1,14 +1,18 @@
-import React from 'react'
-import NavBar from './components/NavBar/NavBar'
-import CarouselHome from './components/CarouselHome/CarouselHome'
-import Footer from './components/Footer/Footer'
+import Footer from "./components/Footer/Footer"
+import NavBar from "./components/NavBar/NavBar"
+import AppRoutes from "./routes/AppRoutes"
+import {BrowserRouter as Router} from "react-router-dom"
+
 
 const App = () => {
   return (
     <>
+    <Router>
         <NavBar/>
-        <CarouselHome/>
+          <AppRoutes/>
         <Footer/>
+    </Router>
+        
     </>
   )
 }

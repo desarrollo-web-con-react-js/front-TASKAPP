@@ -1,4 +1,3 @@
-import React from 'react'
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
 import { Basket, Person } from 'react-bootstrap-icons'
 
