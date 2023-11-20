@@ -1,7 +1,33 @@
+import {BsBookmarkCheck, BsCheck, BsGear, BsPencilSquare} from 'react-icons/bs'
 
-const CategoriaSelector = () => {
+interface CategoriasSelectorProps{
+  onSelectedCategogry: (catergoria:string)=>void;
+}
+const CategoriaSelector: React.FC<CategoriasSelectorProps> = ({onSelectedCategogry}) => {
+const categorias=[
+  {nombre:'PORHACER', icono:<BsCheck/>},
+  {nombre:'ENPRODUCCION', icono:<BsGear/>},
+  {nombre:'PORTESTEAR', icono:<BsPencilSquare/>},
+  {nombre:'COMPLETADA', icono:<BsBookmarkCheck/>},    
+];
+
   return (
-    <div>CategoriaSelector</div>
+   <section className="container mt-3" id="selector-categorias">
+   <p className="fs-3">Seleccione una categoria</p>
+   <div className="row gap-4">
+    {categorias.map((categoria,index)=>(
+      <div className="col d-flex justify-content-center p-0" key={index}>
+        <button
+          onClick={()=> onSelectedCategogry(categoria.nombre)}
+          className="border border-1 boreder-black d-flex gap-1 align-items-center rounded p-1 text-decoration-none"
+          style={{cursor:'pointer'}}
+        >{categoria.icono} {categoria.nombre}</button>
+
+      </div>
+    ))}
+   </div>
+
+   </section>
   )
 }
 
