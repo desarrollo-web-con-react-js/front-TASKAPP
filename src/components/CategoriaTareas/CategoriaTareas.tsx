@@ -1,5 +1,5 @@
 import { Task } from "../../types/Task";
-import { Link } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 
 
 const CategoriaTareas = ({tasks}:{tasks:Task[]}) => {
@@ -32,7 +32,7 @@ const CategoriaTareas = ({tasks}:{tasks:Task[]}) => {
 
                   {/*Boton de ver mas, que nos redirige al detalle de la tarea*/}
                   <div className="card-footer p-4 pt-0 border-top-0 bg-transparent" >
-                    <div className="text-center d-flex gap-1 align-items-center justify-cotnt-center">
+                    <div className="text-center d-flex gap-1 align-items-center justify-content-center">
                       <Link to={`/detalle/${task.id}`} className="btn btn-outline-secondary mt-auto">Ver más</Link>
                     </div>
                   </div>

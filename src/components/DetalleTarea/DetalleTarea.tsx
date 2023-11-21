@@ -90,8 +90,8 @@ try {
     position: toast.POSITION.TOP_RIGHT,
     autoClose: 2000,
 });
-
-
+}
+};
   return (
     <div className="container mt-5">
            {task && (
@@ -116,7 +116,7 @@ try {
                      <option value="COMPLETADA">completada</option>
                  </select>
 
-                 <button className="btn btn-danger" onClick={handleUpdateState}>Eliminar tarea</button>
+                 <button className="btn btn-danger" onClick={handleDeleteTask}>Eliminar tarea</button>
                  <button className="btn btn -primary ms-2" onClick={handleUpdateState}>Actualizar estado</button>
                </div>
             </div>
@@ -131,8 +131,8 @@ try {
                       <p className="card-text">Tiempo:{relatedTask.responsable}</p>
                       <p className="card-text">Responsable:{relatedTask.responsable}</p>
 
-                        <Button variant="primary" onClick={() => navigate(`/detalle/${relatedTask.id}`)}>Ver más</Button>
                      </div>
+                     <Button variant="primary" onClick={() => navigate(`/detalle/${relatedTask.id}`)}>Ver más</Button>
 
                 </div>
               ))

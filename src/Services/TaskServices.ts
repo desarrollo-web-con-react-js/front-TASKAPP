@@ -1,12 +1,12 @@
 import { Task } from "../types/Task";
 
-const BASE_URL ="http://localhost:3000/task";
+const BASE_URL ="http://localhost:3000/tasks"; 
 
 export const TaskService ={
     
 //Obtener todas las tareas
     getAllTasks: async (): Promise<Task[]>=>{
-        const response = await fetch(`$BASE_URL`);
+        const response = await fetch(`${BASE_URL}`);
         const data = await response.json();
         return data;
     },

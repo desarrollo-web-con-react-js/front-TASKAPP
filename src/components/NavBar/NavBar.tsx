@@ -55,7 +55,7 @@ try {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
 
-            <Nav.Link href="#home">Inicio</Nav.Link>
+            <Nav.Link onClick={()=>navigate('/')}>Inicio</Nav.Link>
           
             <NavDropdown title="Tareas" id="basic-nav-dropdown">
               <NavDropdown.Item >Por hacer</NavDropdown.Item>
