@@ -1,6 +1,6 @@
 import { Task } from "../../types/Task";
 import {useFormik} from "formik"
-import { Form, Modal } from "react-bootstrap";
+import { Form, Modal, Button } from "react-bootstrap";
 import * as Yup from "yup";
 
 type ModalAgregarTareaProps = {
@@ -62,7 +62,7 @@ const formik = useFormik({
 
                     {formik.touched.titulo && formik.errors.titulo ?(
                         <div className="text-danger">{formik.errors.titulo}</div>
-                    )}
+                    ):null}
                 </div>
 
                 {/* Descripcion*/}
