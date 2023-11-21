@@ -13,7 +13,7 @@ const CategoriaTareas = ({tasks}:{tasks:Task[]}) => {
 
         <h3 className="display-6">{categoria}</h3>
         <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center g-4">
-          { tasks.filter(task => task.estado === categoria.toUpperCase())//Filtra las tareas por categoria
+          { tasks.filter(tasks => tasks.estado === categoria.toUpperCase())//Filtra las tareas por categoria
             .map(task => (
               //id
               <div className="col" key={task.id}>
