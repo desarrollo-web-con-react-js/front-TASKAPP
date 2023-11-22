@@ -11,12 +11,12 @@ const NavBar = () => {
 const navigate=useNavigate();
 const [showModal, setShowModal]=useState(false);
 
-const handleShowModal=()=>{
+const handleShowModal= () =>{
   setShowModal(true);
-
-const handleCloseModal = ()=>{}
+};
+const handleCloseModal = () =>{
    setShowModal(false);
-}  
+};  
 
 
 //Agregar nueva tarea
@@ -42,11 +42,7 @@ try {
 };
 
 
-  function handleCloseModal(): void {
-    throw new Error('Function not implemented.');
-  }
-
-  return (
+   return (
    <>
      <Navbar expand="lg" className="bg-body-tertiary">
       <Container>
@@ -70,7 +66,7 @@ try {
 
           </Nav>
          <Nav className='d-none d-md-flex ms-auto'>
-            <Nav.Link href='#carrtito'>
+            <Nav.Link href='#carrito'>
                 <Basket/>
             </Nav.Link>
             <Nav.Link href='#usuario'>

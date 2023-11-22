@@ -150,9 +150,9 @@ const formik = useFormik({
                   value={formik.values.estado}
                  >
                   <option value="">Selecciona un estado</option>
-                  <option value="PORHACER">Por hacer</option>
-                  <option value="ENPRODUCCION">En producción</option>
-                  <option value="PORTESTEAR">Por testear</option>
+                  <option value="POR HACER">Por hacer</option>
+                  <option value="EN PRODUCCIÓN">En producción</option>
+                  <option value="POR TESTEAR">Por testear</option>
                   <option value="COMPLETADA">Completada</option>
 
 

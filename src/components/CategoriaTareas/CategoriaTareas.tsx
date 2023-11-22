@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 
 const CategoriaTareas = ({tasks}:{tasks:Task[]}) => {
-  const categorias = ['PORHACER','ENPRODUCCION','PORTESTEAR','COMPLETADA'];
+  const categorias = ['POR HACER','EN PRODUCCIÓN','POR TESTEAR','COMPLETADA'];
   return (
     <section className="container-fluid mt-5" id="categorias">
 
@@ -13,7 +13,7 @@ const CategoriaTareas = ({tasks}:{tasks:Task[]}) => {
 
         <h3 className="display-6">{categoria}</h3>
         <div className="row row-cols-1 row-cols-md-2 row-cols-xl-4 justify-content-center g-4">
-          { tasks.filter(tasks => tasks.estado === categoria.toUpperCase())//Filtra las tareas por categoria
+          { tasks.filter(tasks => tasks.estado.toUpperCase() === categoria.toUpperCase())//Filtra las tareas por categoria
             .map(task => (
               //id
               <div className="col" key={task.id}>

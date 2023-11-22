@@ -8,7 +8,7 @@ const CarouselHome = () => {
         <img 
         className='d block w-100'
         style={{maxHeight:"500px", objectFit:'cover'}}
-        src="https://1.bp.blogspot.com/-lkWPaYzbd44/XjtPeL1DP7I/AAAAAAAAEUQ/cAgG5gFhi1kgz428JohnPOJ1EO9yauXnQCLcBGAsYHQ/s640/tiny-twitch.png" 
+        src="src/assets/images/slide1.jpg" 
         alt="slide1" 
         />
         <Carousel.Caption>
@@ -17,11 +17,11 @@ const CarouselHome = () => {
         </Carousel.Caption>
       </Carousel.Item>
 
-      <Carousel.Item>
+      <Carousel.Item>S
       <img 
         className='d block w-100'
         style={{maxHeight:"500px", objectFit:'cover'}}
-        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiEUj-GjgwRmmpV-EDGpOnhpEPPjOUuUkAGAiPmQZsTIh57yzGcQpnmD1QKXZWdMxUYUYXcV69xOHCS1VsYbmkrrWYCCmDuiWIqFMEva0TVtPxtFZkTD1GDvwYUQmUyh1ylRiqLVerNkHerftvZWkQiSDWkuRK99FBdGKXrMT4We3GvLv3MNsTf6L3R-HY/w640-h360/mercadoPlay.png" 
+        src="src/assets/images/slide2.jpeg" 
         alt="slide1" 
         />
         <Carousel.Caption>
@@ -34,7 +34,7 @@ const CarouselHome = () => {
       <img 
         className='d block w-100'
         style={{maxHeight:"500px", objectFit:'cover'}}
-        src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjUhlkwJLct71W8Fhu6OqI-pPwo3Dxcz3-Px8K3fd2MHjNLBB9fDJL_GTrEA6NjMtkhq2UOoSMIylskPEa6X7yKJQOOA38vp5XZzu0GmLNIee4SbZxJel_2eNPgbbRu3yFgVXljyiNXWEdONo-I1cOyWEY-GjM8j8tz_a_wnJ9cE4d1GYdzfbNvLalZ/s16000/chatgpt-mundocyberia.png" 
+        src="src/assets/images/slide3.jpg" 
         alt="slide1" 
         />
         <Carousel.Caption>
