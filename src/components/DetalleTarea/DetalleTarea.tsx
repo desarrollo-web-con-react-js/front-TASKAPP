@@ -128,7 +128,7 @@ try {
                      <img src={relatedTask.imagen} alt={relatedTask.titulo} className="card-img-top" />
                      <div className="card-body">
                       <h5 className="card-title">{relatedTask.titulo}</h5>
-                      <p className="card-text">Tiempo:{relatedTask.responsable}</p>
+                      <p className="card-text">Tiempo:{relatedTask.tiempo}</p>
                       <p className="card-text">Responsable:{relatedTask.responsable}</p>
 
                      </div>
