@@ -12,8 +12,8 @@ const CarouselHome = () => {
         alt="slide1" 
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Front End</h3>
+          <p>Desarrollo de la parte de un sitio web o aplicación que los usuarios ven y con la que interactúan directamente.</p>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -25,8 +25,8 @@ const CarouselHome = () => {
         alt="slide1" 
         />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Back End</h3>
+          <p>Desarrollo de la parte no visible de un sitio web o aplicación, donde se encuentra la lógica subyacente que permite su funcionamiento.</p>
         </Carousel.Caption>
       </Carousel.Item>
 
@@ -38,9 +38,9 @@ const CarouselHome = () => {
         alt="slide1" 
         />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Soporte al usuario</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          Servicio de asistencia que incluye todas las acciones en respuesta a la ayuda en el uso de un producto o servicio.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
