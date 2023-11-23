@@ -10,7 +10,7 @@ const AppRoutes: React.FC = () => {
         <Route path="/" element={< LandingPage/>}/>
         <Route path="/detalle/:taskId" element={< DetalleTareaPage/>}/>
         <Route path="/404" element={<NotFoundPage/>} />
-        <Route path="*" element={<Navigate to ="404"/>} />
+        <Route path="*" element={<Navigate to ="/404"/>} />
     </Routes>
   )
 }
