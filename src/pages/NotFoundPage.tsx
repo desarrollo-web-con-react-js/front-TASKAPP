@@ -1,4 +1,5 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const NotFoundPage = () => {
   return (
@@ -7,6 +8,9 @@ const NotFoundPage = () => {
         <Row className="flex-grow-1 justify-content-center align-items-center">
           <Col className="text-center">
             <h1>¡Oops... página no encontrada!</h1>
+            <Link to="/">
+              <Button variant="primary">Volver al Inicio</Button>
+            </Link>
           </Col>
         </Row>
        
