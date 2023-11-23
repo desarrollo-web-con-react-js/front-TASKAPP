@@ -43,7 +43,7 @@ const formik = useFormik({
   return (
     <Modal show={showModal} onHide={handleClose}>
         <Modal.Header>
-            <Modal.Title>Aggregue una Tarea</Modal.Title>
+            <Modal.Title>Agregar una Tarea</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <Form onSubmit={formik.handleSubmit}>
