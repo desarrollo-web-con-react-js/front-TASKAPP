@@ -8,7 +8,7 @@ const CarouselHome = () => {
         <img 
         className='d block w-100'
         style={{maxHeight:"500px", objectFit:'cover'}}
-        src="/assets/images/slide1.jpg" 
+        src="/assets/images/slide1.jpeg" 
         alt="slide1" 
         />
         <Carousel.Caption>
@@ -38,9 +38,9 @@ const CarouselHome = () => {
         alt="slide1" 
         />
         <Carousel.Caption>
-          <h3>Soporte al usuario</h3>
+          <h3>Full Stack</h3>
           <p>
-          Servicio de asistencia que incluye todas las acciones en respuesta a la ayuda en el uso de un producto o servicio.
+          Trabajar tanto con el front-end como con el back-end en el desarrollo de una aplicación web.
           </p>
         </Carousel.Caption>
       </Carousel.Item>
