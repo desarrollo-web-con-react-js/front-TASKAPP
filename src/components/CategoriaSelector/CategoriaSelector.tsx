@@ -14,7 +14,7 @@ const categorias=[
   return (
    <section className="container mt-3" id="selector-categorias">
    <p className="fs-3">Seleccione una categoria</p>
-   <div className="row gap-4">
+   <div className="row gap-4 justify-content-center">
     {categorias.map((categoria,index)=>(
       <div className="col-12 col-sm-6 col-md" key={index}>
         <button
