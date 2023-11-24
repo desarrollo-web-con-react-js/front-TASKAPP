@@ -117,7 +117,7 @@ try {
                  </select>
 
                  <button className="btn btn-danger" onClick={handleDeleteTask}>Eliminar tarea</button>
-                 <button className="btn btn-primary ms-2" onClick={handleUpdateState}>Actualizar estado</button>
+                 <button className="btn btn-success ms-2" onClick={handleUpdateState}>Actualizar estado</button>
                </div>
             </div>
            )} 
