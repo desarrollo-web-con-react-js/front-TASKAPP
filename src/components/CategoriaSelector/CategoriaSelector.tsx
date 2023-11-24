@@ -16,10 +16,10 @@ const categorias=[
    <p className="fs-3">Seleccione una categoria</p>
    <div className="row gap-4">
     {categorias.map((categoria,index)=>(
-      <div className="col d-flex justify-content-center p-0" key={index}>
+      <div className="col-12 col-sm-6 col-md" key={index}>
         <button
           onClick={()=> onSelectedCategory(categoria.nombre)}
-          className="border border-1 boreder-black d-flex gap-1 align-items-center rounded p-1 text-decoration-none"
+          className="border border-1 boreder-black d-flex gap-1 align-items-center rounded p-1 text-decoration-none justify-content-center w-100"
           style={{cursor:'pointer'}}
         >{categoria.icono} {categoria.nombre}</button>
 
