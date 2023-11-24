@@ -125,14 +125,18 @@ try {
            <div className="row mt-5">
               {relatedTasks.map((relatedTask)=>(
                 <div className="col-12 col-md-4 mb-4" key={relatedTask.id}>
+                  <div className="card h-100">
                      <img src={relatedTask.imagen} alt={relatedTask.titulo} className="card-img-top" />
                      <div className="card-body">
-                      <h5 className="card-title">{relatedTask.titulo}</h5>
-                      <p className="card-text">Tiempo:{relatedTask.tiempo}</p>
-                      <p className="card-text">Responsable:{relatedTask.responsable}</p>
-
+                        <h5 className="card-title">{relatedTask.titulo}</h5>
+                        <p className="card-text">Tiempo:{relatedTask.tiempo}</p>
+                        <p className="card-text">Responsable:{relatedTask.responsable}</p>
                      </div>
-                     <Button variant="primary" onClick={() => navigate(`/detalle/${relatedTask.id}`)}>Ver más</Button>
+                     <div className="card-footer border-top-0 bg-transparent">
+                        <Button className="w-100" variant="primary" onClick={() => navigate(`/detalle/${relatedTask.id}`)}>Ver más</Button>
+                     </div>
+                  </div>
+                  
 
                 </div>
               ))

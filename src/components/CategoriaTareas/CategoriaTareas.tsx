@@ -19,7 +19,7 @@ const CategoriaTareas = ({tasks}:{tasks:Task[]}) => {
               <div className="col" key={task.id}>
                 <div className="card h-100">
                   {/*imagen*/}
-                  <img style={{minHeight:'300px', maxHeight:'300px',}} className="card-img-top" src={task.imagen} alt={task.titulo}/>
+                  <img style={{minHeight:'300px', maxHeight:'300px',objectFit: 'cover', objectPosition: 'center',}} className="card-img-top img-fluid" src={task.imagen} alt={task.titulo}/>
                   <div className="card-body p-4">
                     <div className="text-center">
 
