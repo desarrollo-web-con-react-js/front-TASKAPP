@@ -5,8 +5,6 @@ import { TaskService } from "../../Services/TaskServices";
 import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
 
-
-
 const DetalleTarea = () => {
 const {taskId} = useParams<{taskId?:string}>();
 const [task, setTask] = useState<Task | null>(null);
@@ -110,10 +108,10 @@ try {
 
                  <select className="form-select mb-3" onChange={(e)=> setEstado(e.target.value)}value={estado}>
                      <option value="">Seleccionar estado</option>
-                     <option value="POR HACER">Por hacer</option>
-                     <option value="EN PRODUCCIÓN">En producción</option>
-                     <option value="POR TESTEAR">Por testear </option>
-                     <option value="COMPLETADA">completada</option>
+                     <option value="Por hacer">Por hacer</option>
+                     <option value="En producción">En producción</option>
+                     <option value="Por testear">Por testear </option>
+                     <option value="Completada">Completada</option>
                  </select>
 
                  <button className="btn btn-danger" onClick={handleDeleteTask}>Eliminar tarea</button>
@@ -133,7 +131,7 @@ try {
                         <p className="card-text">Responsable:{relatedTask.responsable}</p>
                      </div>
                      <div className="card-footer border-top-0 bg-transparent">
-                        <Button className="w-100" variant="primary" onClick={() => navigate(`/detalle/${relatedTask.id}`)}>Ver más</Button>
+                        <Button className="w-100" variant="primary" onClick={() => {navigate(`/detalle/${relatedTask.id}`);window.scrollTo({ top: 0, behavior: 'smooth' });}}>Ver más</Button>
                      </div>
                   </div>
                   

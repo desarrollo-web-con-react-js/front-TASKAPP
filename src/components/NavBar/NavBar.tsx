@@ -10,6 +10,7 @@ import ModalAgregarTarea from '../ModalAgregarTarea/ModalAgregarTarea';
 const NavBar = () => {
 const navigate=useNavigate();
 const [showModal, setShowModal]=useState(false);
+const [selectedCategory, setSelectedCategory] = useState(""); // Nuevo estado para la categoría seleccionada
 
 const handleShowModal= () =>{
   setShowModal(true);
@@ -41,6 +42,18 @@ try {
   }
 };
 
+// Nueva función para manejar la selección de categoría
+const handleCategorySelect = (categoria: string) => {
+  setSelectedCategory(categoria);
+  navigate(`/tasks/${categoria}`); // Navegar a la página con la categoría seleccionada
+  console.log("categoria: ", selectedCategory);
+};
+
+//Redirige a la página de inicio de sesión
+const handleNavigateToLogin = () => {
+    navigate('/login');
+};
+
 
    return (
    <>
@@ -54,11 +67,11 @@ try {
             <Nav.Link onClick={()=>navigate('/')}>Inicio</Nav.Link>
           
             <NavDropdown title="Tareas" id="basic-nav-dropdown">
-              <NavDropdown.Item >Por hacer</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">En Producción</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Por Testear</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleCategorySelect('Por hacer')}>Por hacer</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleCategorySelect('En producción')}>En Producción</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleCategorySelect('Por testear')}>Por Testear</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Completada</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleCategorySelect('Completada')}>Completada</NavDropdown.Item>
             </NavDropdown>
 
             {/*-------------------Agregar una nueva tarea ----------------------------------*/}
@@ -69,7 +82,7 @@ try {
             <Nav.Link href='#carrito'>
                 <Basket/>
             </Nav.Link>
-            <Nav.Link href='#usuario'>
+            <Nav.Link href='#usuario' onClick={handleNavigateToLogin}>
                 <Person />
             </Nav.Link>
 
