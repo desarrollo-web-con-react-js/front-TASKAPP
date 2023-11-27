@@ -18,7 +18,7 @@ const AppRoutes: React.FC = () => {
       <Routes>
        
        <Route path="/" element={< LandingPage/>}/>
-       <Route path="/detalle/:taskId" element={< DetalleTareaPage/>}/>
+       <Route path="/detalle/:taskId" element={< DetalleTareaPage isLoggedIn={isLoggedIn}/>}/>
 
        <Route path="/tasks/:categoria" element={<PaginaListaTareasSeleccionada/>}/>
 

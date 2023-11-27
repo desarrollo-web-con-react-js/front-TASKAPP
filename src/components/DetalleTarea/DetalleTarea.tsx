@@ -5,7 +5,12 @@ import { TaskService } from "../../Services/TaskServices";
 import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
 
-const DetalleTarea = () => {
+interface DetalleTareaProps {
+  isLoggedIn: boolean;
+}
+
+const  DetalleTarea: React.FC<DetalleTareaProps> = ({ isLoggedIn }) => {
+
 const {taskId} = useParams<{taskId?:string}>();
 const [task, setTask] = useState<Task | null>(null);
 const [estado,setEstado] = useState<string>('');
@@ -106,16 +111,18 @@ try {
                  <p className="lead">Responsable:{task.responsable}</p>
                  <p className="lead">Descripción:{task.descripcion}</p>
 
-                 <select className="form-select mb-3" onChange={(e)=> setEstado(e.target.value)}value={estado}>
+                 <select className="form-select mb-3" onChange={(e)=> setEstado(e.target.value)}value={estado} style={{ display: isLoggedIn ? 'block' : 'none' }}>
                      <option value="">Seleccionar estado</option>
                      <option value="Por hacer">Por hacer</option>
                      <option value="En producción">En producción</option>
                      <option value="Por testear">Por testear </option>
                      <option value="Completada">Completada</option>
                  </select>
-
-                 <button className="btn btn-danger" onClick={handleDeleteTask}>Eliminar tarea</button>
-                 <button className="btn btn-success ms-2" onClick={handleUpdateState}>Actualizar estado</button>
+                 
+                 <button className="btn btn-danger" onClick={handleDeleteTask} style={{ display: isLoggedIn ? 'display' : 'none' }}>Eliminar tarea</button>
+                 <button className="btn btn-success ms-2" onClick={handleUpdateState} style={{ display: isLoggedIn ? 'display' : 'none' }}>Actualizar estado</button>
+                 
+                 
                </div>
             </div>
            )} 

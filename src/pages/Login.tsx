@@ -4,6 +4,7 @@ import * as Yup from "yup";
 
 import {LoginService} from '../Services/LoginService';
 import { useNavigate } from 'react-router-dom';
+import React from 'react';
 
 
 const schema = Yup.object().shape({
@@ -23,24 +24,23 @@ interface LoginProps {
 const Login: React.FC<LoginProps> = ({ setIsLoggedIn })=> {
 
     const navigate=useNavigate();
+    const [error, setError] = React.useState<string | null>(null);
 
   
     const submitForm = async (values: MyFormValues) => {
         try {
-            console.log('Formulario enviado:', values);
             const isValidUser = await LoginService.authenticateUser(values.email, values.password);
     
             if (isValidUser) {
-                console.log('Usuario autenticado:', values.email);
                 setIsLoggedIn(true);
                 handleReset(values);
                 navigate('/');
             } else {
                 console.log('Autenticación fallida');
+                setError('Email o contraseña incorrectos');
             }
         } catch (error) {
             console.error('Error en la autenticación:', error);
-            // Manejar el error, mostrar un mensaje de error, etc.
         }
     };
 
@@ -97,6 +97,7 @@ const Login: React.FC<LoginProps> = ({ setIsLoggedIn })=> {
                         <br/>
                         {errors.email && <div className="text-danger">Email inválido</div>}
                         {errors.password && <div className="text-danger">La contraseña debe tener al menors 8 carácteres</div>}
+                        {error && <div className="text-danger">{error}</div>}
                     </Form>
                  </div>
             </div>

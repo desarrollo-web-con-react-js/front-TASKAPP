@@ -101,10 +101,10 @@ const handleNavigateToLogin = () => {
          <div className="d-md-none">
             <ul className='navbar-nav me-auto-mb-2 mb-md-0'>
                 <li className='nav-item'>
-                    <a className='nav-link' href='#ticket'>Ticket</a>
+                    <a className='nav-link' onClick={handleNavigateToLogin} style={{ display: isLoggedIn ? 'none' : 'block' }}>Login</a>
                 </li>
                 <li className='nav-item'>
-                    <a className='nav-link' href='#perfil'>Perfil</a>
+                    <a className='nav-link' onClick={handleLogout}  style={{ display: isLoggedIn ? 'block' : 'none' }}>Cerrar sesión</a>
                 </li>
             </ul>
          </div>

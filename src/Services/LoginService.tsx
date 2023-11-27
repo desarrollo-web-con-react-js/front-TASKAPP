@@ -31,11 +31,9 @@ export const LoginService ={
     
     // Autenticar usuario
     authenticateUser: async (email: string, password: string): Promise<boolean> => {
-        // Realizar lógica de autenticación, por ejemplo, comparar email y password con los usuarios en el backend
+        // comparar email y password con los usuarios en el backend
         const users = await LoginService.getAllUsers();
-        console.log(users);
         const authenticatedUser = users.find(user => user.email === email && user.password === password);
-        console.log(authenticatedUser);
         // Devolver true si el usuario está autenticado, de lo contrario, false
         return !!authenticatedUser;
     },
