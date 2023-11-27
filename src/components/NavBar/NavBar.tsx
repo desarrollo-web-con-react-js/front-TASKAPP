@@ -1,5 +1,4 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
-import { Basket, Person } from 'react-bootstrap-icons'
 import { useNavigate } from 'react-router-dom'
 import { Task } from '../../types/Task';
 import { TaskService } from '../../Services/TaskServices';
@@ -7,9 +6,16 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import ModalAgregarTarea from '../ModalAgregarTarea/ModalAgregarTarea';
 
-const NavBar = () => {
+interface NavBarProps {
+  isLoggedIn: boolean;
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ isLoggedIn, setIsLoggedIn }) => {
+
 const navigate=useNavigate();
 const [showModal, setShowModal]=useState(false);
+const [selectedCategory, setSelectedCategory] = useState(""); // Nuevo estado para la categoría seleccionada
 
 const handleShowModal= () =>{
   setShowModal(true);
@@ -17,6 +23,12 @@ const handleShowModal= () =>{
 const handleCloseModal = () =>{
    setShowModal(false);
 };  
+
+const handleLogout = () => {
+  // Lógica de cierre de sesión aquí
+  setIsLoggedIn(false);
+  navigate('/login');
+};
 
 
 //Agregar nueva tarea
@@ -41,6 +53,18 @@ try {
   }
 };
 
+// Nueva función para manejar la selección de categoría
+const handleCategorySelect = (categoria: string) => {
+  setSelectedCategory(categoria);
+  navigate(`/tasks/${categoria}`); // Navegar a la página con la categoría seleccionada
+  console.log("categoria: ", selectedCategory);
+};
+
+//Redirige a la página de inicio de sesión
+const handleNavigateToLogin = () => {
+    navigate('/login');
+};
+
 
    return (
    <>
@@ -54,34 +78,33 @@ try {
             <Nav.Link onClick={()=>navigate('/')}>Inicio</Nav.Link>
           
             <NavDropdown title="Tareas" id="basic-nav-dropdown">
-              <NavDropdown.Item >Por hacer</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">En Producción</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Por Testear</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleCategorySelect('Por hacer')}>Por hacer</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleCategorySelect('En producción')}>En Producción</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleCategorySelect('Por testear')}>Por Testear</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">Completada</NavDropdown.Item>
+              <NavDropdown.Item onClick={() => handleCategorySelect('Completada')}>Completada</NavDropdown.Item>
             </NavDropdown>
 
             {/*-------------------Agregar una nueva tarea ----------------------------------*/}
-            <Nav.Link onClick={handleShowModal}>Agregar tarea</Nav.Link>
+            <Nav.Link onClick={handleShowModal} style={{ display: isLoggedIn ? 'block' : 'none' }}>Agregar tarea</Nav.Link>
 
           </Nav>
          <Nav className='d-none d-md-flex ms-auto'>
-            <Nav.Link href='#carrito'>
-                <Basket/>
+          
+            <Nav.Link href='#usuario' onClick={handleNavigateToLogin} style={{ display: isLoggedIn ? 'none' : 'block' }}>
+                Login
             </Nav.Link>
-            <Nav.Link href='#usuario'>
-                <Person />
-            </Nav.Link>
+            <Nav.Link onClick={handleLogout} style={{ display: isLoggedIn ? 'block' : 'none' }}>Cerrar sesión</Nav.Link>
 
          </Nav> 
 
          <div className="d-md-none">
             <ul className='navbar-nav me-auto-mb-2 mb-md-0'>
                 <li className='nav-item'>
-                    <a className='nav-link' href='#ticket'>Ticket</a>
+                    <a className='nav-link' onClick={handleNavigateToLogin} style={{ display: isLoggedIn ? 'none' : 'block' }}>Login</a>
                 </li>
                 <li className='nav-item'>
-                    <a className='nav-link' href='#perfil'>Perfil</a>
+                    <a className='nav-link' onClick={handleLogout}  style={{ display: isLoggedIn ? 'block' : 'none' }}>Cerrar sesión</a>
                 </li>
             </ul>
          </div>
