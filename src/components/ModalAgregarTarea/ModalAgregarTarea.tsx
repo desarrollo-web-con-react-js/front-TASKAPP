@@ -31,7 +31,7 @@ const formik = useFormik({
     validationSchema:validationSchema,
 
     onSubmit: async (values) =>{
-        values.estado.toUpperCase();
+        //values.estado.toUpperCase();
         console.log("Datos de formulario", JSON.stringify(values));
 
         await createTask(values);//Lama a la funcion para agregar la nueva tarea
@@ -150,10 +150,10 @@ const formik = useFormik({
                   value={formik.values.estado}
                  >
                   <option value="">Selecciona un estado</option>
-                  <option value="POR HACER">Por hacer</option>
-                  <option value="EN PRODUCCIÓN">En producción</option>
-                  <option value="POR TESTEAR">Por testear</option>
-                  <option value="COMPLETADA">Completada</option>
+                  <option value="Por hacer">Por hacer</option>
+                  <option value="En produccón">En producción</option>
+                  <option value="Por testear">Por testear</option>
+                  <option value="Completada">Completada</option>
 
 
                  </Form.Select>
