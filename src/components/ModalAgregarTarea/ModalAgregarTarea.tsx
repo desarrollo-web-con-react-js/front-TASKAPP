@@ -31,7 +31,7 @@ const formik = useFormik({
     validationSchema:validationSchema,
 
     onSubmit: async (values) =>{
-        values.estado.toUpperCase();
+        //values.estado.toUpperCase();
         console.log("Datos de formulario", JSON.stringify(values));
 
         await createTask(values);//Lama a la funcion para agregar la nueva tarea
