@@ -2,23 +2,48 @@ import { useFormik } from 'formik';
 import { Button, Container, Form } from 'react-bootstrap';
 import * as Yup from "yup";
 
+import {LoginService} from '../Services/LoginService';
+import { useNavigate } from 'react-router-dom';
+
+
 const schema = Yup.object().shape({
     email:Yup.string().email('Email inválido').required(),
     password: Yup.string().min(8, 'La contraseña debe tener al menos 8 caracteres').required(),
 })
 
-const Login = () => {
+interface MyFormValues {
+    email: string;
+    password: string;
+}
 
-    interface MyFormValues {
-        email: string;
-        password: string;
-    }
+interface LoginProps {
+    setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+  }
 
-    const submitForm=(values: MyFormValues)=>{
-        console.log('Formulario enviado:', values);
-        
-    };
+const Login: React.FC<LoginProps> = ({ setIsLoggedIn })=> {
+
+    const navigate=useNavigate();
+
+  
+    const submitForm = async (values: MyFormValues) => {
+        try {
+            console.log('Formulario enviado:', values);
+            const isValidUser = await LoginService.authenticateUser(values.email, values.password);
     
+            if (isValidUser) {
+                console.log('Usuario autenticado:', values.email);
+                setIsLoggedIn(true);
+                handleReset(values);
+                navigate('/');
+            } else {
+                console.log('Autenticación fallida');
+            }
+        } catch (error) {
+            console.error('Error en la autenticación:', error);
+            // Manejar el error, mostrar un mensaje de error, etc.
+        }
+    };
+
     const {handleSubmit, handleChange, handleReset, errors, values} = useFormik({
         initialValues:{
             email:'',
@@ -29,18 +54,15 @@ const Login = () => {
         
     });
 
- /*    const handleIngresarClick = () => {
-        handleSubmit(); // This will trigger form submission
-        handleReset(); // This will reset the form after submission
-    }; */
 
     const handleLoginSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         handleSubmit();
-        handleReset(e);
+        
+       
     };
 
- 
+    
 
 	return (
 		<>

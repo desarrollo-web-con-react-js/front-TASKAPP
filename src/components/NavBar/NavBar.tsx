@@ -1,5 +1,4 @@
 import { Navbar, Container, Nav, NavDropdown } from 'react-bootstrap'
-import { Basket, Person } from 'react-bootstrap-icons'
 import { useNavigate } from 'react-router-dom'
 import { Task } from '../../types/Task';
 import { TaskService } from '../../Services/TaskServices';
@@ -7,7 +6,13 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import ModalAgregarTarea from '../ModalAgregarTarea/ModalAgregarTarea';
 
-const NavBar = () => {
+interface NavBarProps {
+  isLoggedIn: boolean;
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const NavBar: React.FC<NavBarProps> = ({ isLoggedIn, setIsLoggedIn }) => {
+
 const navigate=useNavigate();
 const [showModal, setShowModal]=useState(false);
 const [selectedCategory, setSelectedCategory] = useState(""); // Nuevo estado para la categoría seleccionada
@@ -18,6 +23,12 @@ const handleShowModal= () =>{
 const handleCloseModal = () =>{
    setShowModal(false);
 };  
+
+const handleLogout = () => {
+  // Lógica de cierre de sesión aquí
+  setIsLoggedIn(false);
+  navigate('/login');
+};
 
 
 //Agregar nueva tarea
@@ -75,16 +86,15 @@ const handleNavigateToLogin = () => {
             </NavDropdown>
 
             {/*-------------------Agregar una nueva tarea ----------------------------------*/}
-            <Nav.Link onClick={handleShowModal}>Agregar tarea</Nav.Link>
+            <Nav.Link onClick={handleShowModal} style={{ display: isLoggedIn ? 'block' : 'none' }}>Agregar tarea</Nav.Link>
 
           </Nav>
          <Nav className='d-none d-md-flex ms-auto'>
-            <Nav.Link href='#carrito'>
-                <Basket/>
+          
+            <Nav.Link href='#usuario' onClick={handleNavigateToLogin} style={{ display: isLoggedIn ? 'none' : 'block' }}>
+                Login
             </Nav.Link>
-            <Nav.Link href='#usuario' onClick={handleNavigateToLogin}>
-                <Person />
-            </Nav.Link>
+            <Nav.Link onClick={handleLogout} style={{ display: isLoggedIn ? 'block' : 'none' }}>Cerrar sesión</Nav.Link>
 
          </Nav> 
 

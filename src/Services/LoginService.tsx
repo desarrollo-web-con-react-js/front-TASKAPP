@@ -6,7 +6,7 @@ const BASE_URL_USERS ="http://localhost:3000/users";
 
 //const BASE_URL ="https://backend-taskapp-oftb.onrender.com/users"; 
 
-export const UserService ={
+export const LoginService ={
     
     //Obtener todos los usuarios
         getAllUsers: async (): Promise<User[]>=>{
@@ -15,12 +15,30 @@ export const UserService ={
             return data;
         },
 
-    //Obtener un usuario
+    //Obtener un usuario por id
         getOneUser: async (id:number): Promise<User>=>{
             const response = await fetch(`${BASE_URL_USERS}/${id}`);
             const data = await response.json();
             return data;
-        },    
+        },  
+        
+    //Obtener un usuario por email
+    getTasksInCategory: async (email:string): Promise<User[]> =>{
+        const response = await fetch(`${BASE_URL_USERS}?estado=${email}`);
+        const data = await response.json();
+        return data
+    },  
+    
+    // Autenticar usuario
+    authenticateUser: async (email: string, password: string): Promise<boolean> => {
+        // Realizar lógica de autenticación, por ejemplo, comparar email y password con los usuarios en el backend
+        const users = await LoginService.getAllUsers();
+        console.log(users);
+        const authenticatedUser = users.find(user => user.email === email && user.password === password);
+        console.log(authenticatedUser);
+        // Devolver true si el usuario está autenticado, de lo contrario, false
+        return !!authenticatedUser;
+    },
 
     
 }
