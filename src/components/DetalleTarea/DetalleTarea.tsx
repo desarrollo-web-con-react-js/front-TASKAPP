@@ -107,9 +107,9 @@ try {
                  <h1 className="display-5 fw-bolder">{task.titulo}</h1>
                  <h3>Detalle de la tarea con ID: {task.id}</h3>
                  <h5> Estado actual: {task.estado}</h5>
-                 <p className="lead">Tiempo:{task.tiempo}</p>
-                 <p className="lead">Responsable:{task.responsable}</p>
-                 <p className="lead">Descripción:{task.descripcion}</p>
+                 <p className="lead">Tiempo: {task.tiempo} hs</p>
+                 <p className="lead">Responsable: {task.responsable}</p>
+                 <p className="lead">Descripción: {task.descripcion}</p>
 
                  <select className="form-select mb-3" onChange={(e)=> setEstado(e.target.value)}value={estado} style={{ display: isLoggedIn ? 'block' : 'none' }}>
                      <option value="">Seleccionar estado</option>

@@ -91,7 +91,7 @@ const handleNavigateToLogin = () => {
           </Nav>
          <Nav className='d-none d-md-flex ms-auto'>
           
-            <Nav.Link href='#usuario' onClick={handleNavigateToLogin} style={{ display: isLoggedIn ? 'none' : 'block' }}>
+            <Nav.Link href='#usuario' onClick={handleNavigateToLogin} style={{ display: isLoggedIn ? 'none' : 'block', }}>
                 Login
             </Nav.Link>
             <Nav.Link onClick={handleLogout} style={{ display: isLoggedIn ? 'block' : 'none' }}>Cerrar sesión</Nav.Link>
