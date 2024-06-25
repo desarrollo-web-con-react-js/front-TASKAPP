@@ -76,7 +76,7 @@ const handleNavigateToLogin = () => {
           <Nav className="me-auto">
 
             <Nav.Link onClick={()=>navigate('/')}>Inicio</Nav.Link>
-          
+            <Nav.Link onClick={()=>navigate('/acerca-de')}>Acerca de</Nav.Link>
             <NavDropdown title="Tareas" id="basic-nav-dropdown">
               <NavDropdown.Item onClick={() => handleCategorySelect('Por hacer')}>Por hacer</NavDropdown.Item>
               <NavDropdown.Item onClick={() => handleCategorySelect('En producción')}>En Producción</NavDropdown.Item>
