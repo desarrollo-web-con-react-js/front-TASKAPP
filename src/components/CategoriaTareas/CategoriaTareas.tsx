@@ -2,12 +2,15 @@ import { Task } from "../../types/Task";
 import { Link } from "react-router-dom";
 
 
-const CategoriaTareas = ({tasks}:{tasks:Task[]}) => {
+const CategoriaTareas = ({tasks,selectedCategory}:{tasks:Task[], selectedCategory: string}) => {
   const categorias = ['POR HACER','EN PRODUCCIÓN','POR TESTEAR','COMPLETADA'];
+
+  // Si hay una categoría seleccionada, solo mostramos esa categoría
+  const categoriasToRender = selectedCategory ? [selectedCategory] : categorias;
+
   return (
     <section className="container-fluid mt-5" id="categorias">
-
-      {categorias.map((categoria,index)=>(
+      {categoriasToRender.map((categoria,index)=>(
 
         <section className="text-center mb-5" key={index}>
 
@@ -25,7 +28,7 @@ const CategoriaTareas = ({tasks}:{tasks:Task[]}) => {
 
                       {/*body de la tarjeta */}
                       <h5 className="fw-bolder">{task.titulo}</h5>
-                      <span>{`Tiempo:${task.tiempo}`}</span><br/>
+                      <span>{`Tiempo: ${task.tiempo}`}</span> hs<br/>
                       <span>{`Responsable: ${task.responsable}`}</span>
                     </div>
                   </div>

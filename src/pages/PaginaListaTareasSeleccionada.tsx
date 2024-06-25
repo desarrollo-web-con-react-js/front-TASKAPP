@@ -47,7 +47,7 @@ const PaginaListaTareasSeleccionada = () => {
 
                       {/*body de la tarjeta */}
                       <h5 className="fw-bolder">{task.titulo}</h5>
-                      <span>{`Tiempo:${task.tiempo}`}</span><br/>
+                      <span>{`Tiempo:${task.tiempo}`} hs</span><br/>
                       <span>{`Responsable: ${task.responsable}`}</span>
                     </div>
                   </div>
