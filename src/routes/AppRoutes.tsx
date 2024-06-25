@@ -6,6 +6,7 @@ import PaginaListaTareasSeleccionada from "../pages/PaginaListaTareasSeleccionad
 import Login from "../pages/Login"
 import NavBar from "../components/NavBar/NavBar"
 import { useState } from "react"
+import AcercaDe from "../pages/AcercaDe"
 
 
 const AppRoutes: React.FC = () => {
@@ -18,6 +19,7 @@ const AppRoutes: React.FC = () => {
       <Routes>
        
        <Route path="/" element={< LandingPage/>}/>
+       <Route path="/acerca-de" element={< AcercaDe/>}/>
        <Route path="/detalle/:taskId" element={< DetalleTareaPage isLoggedIn={isLoggedIn}/>}/>
 
        <Route path="/tasks/:categoria" element={<PaginaListaTareasSeleccionada/>}/>
