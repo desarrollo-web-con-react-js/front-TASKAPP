@@ -3,7 +3,7 @@ const AcercaDe = () => {
   return (
     <>
       <div className="d-flex flex-column w-100 ">
-        <Row className="d-block w-100 bg-primary py-5">
+        <Row className="d-block w-100 bg-primary py-5 px-3 mx-0">
           <Col className="text-center py-5">
             <h1 className="text-white">Acerca de  </h1>
           </Col>
